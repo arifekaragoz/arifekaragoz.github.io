@@ -5,451 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siber Güven Çocuklar - Hükümet Projesi</title>
-    <style>
-        /* 
-         * TASARIM SİSTEMİ & DEĞİŞKENLER
-         * Çocuklar için davetkar, yumuşak, pastel renk paleti.
-         */
-        :root {
-            --primary-color: #6a89cc;
-            /* Yumuşak Mavi */
-            --primary-light: #e6f2ff;
-            /* Çok Açık Mavi */
-            --secondary-color: #82ccdd;
-            /* Nane Yeşili Mavisi */
-            --accent-color: #f8c291;
-            /* Yumuşak Turuncu */
-            --highlight-color: #fad390;
-            /* Yumuşak Sarı */
-            --text-dark: #2c3e50;
-            /* Okunabilirlik için Koyu Gri */
-            --text-light: #576574;
-            /* Gövde metni için Daha Açık Gri */
-            --white: #ffffff;
-
-            --radius-large: 30px;
-            --radius-medium: 20px;
-            --radius-small: 12px;
-
-            --shadow-soft: 0 10px 25px rgba(106, 137, 204, 0.15);
-            --shadow-hover: 0 15px 35px rgba(106, 137, 204, 0.25);
-
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        /* SIFIRLAMA & TEMEL STİLLER */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-family);
-            background-color: #f4f9fc;
-            color: var(--text-dark);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* 
-         * ÜST BİLDİRİM (HEADER) 
-         */
-        header {
-            background-color: var(--white);
-            padding: 15px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom-left-radius: var(--radius-medium);
-            border-bottom-right-radius: var(--radius-medium);
-        }
-
-        /* Logo */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            margin-left: 60px;
-            margin-top: 7px;
-        }
-
-        /* Navigasyon Menüsü */
-        nav {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-btn {
-            background-color: transparent;
-            color: var(--text-light);
-            padding: 10px 24px;
-            border-radius: 50px;
-            /* Hap şekli */
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .nav-btn:hover,
-        .nav-btn.active {
-            background-color: var(--primary-light);
-            color: var(--primary-color);
-            border-color: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .mobile-menu-icon {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        /* 
-         * ANA İÇERİK 
-         */
-        main {
-            flex: 1;
-            max-width: 1200px;
-            margin: 40px auto;
-            width: 90%;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        /* Karşılama Bölümü */
-        .hero {
-            text-align: center;
-            background: linear-gradient(135deg, #fff 0%, var(--primary-light) 100%);
-            padding: 60px 40px;
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Kapsam / Vizyon Bilgisi Özeti */
-        .info-teaser {
-            background-color: var(--white);
-            border-radius: var(--radius-medium);
-            padding: 30px;
-            border-left: 5px solid var(--accent-color);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .info-teaser h2 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .info-teaser p {
-            color: var(--text-light);
-        }
-
-        /* 
-         * HEDEF KİTLE YÖNLENDİRME BÖLÜMÜ (Etkinlikler) 
-         */
-        .activities-section {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            position: relative;
-            display: inline-block;
-            align-self: center;
-            margin-bottom: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60%;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-            margin: 5px auto 0;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .role-card {
-            background-color: var(--white);
-            border-radius: var(--radius-large);
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 100%;
-            border: 2px solid transparent;
-        }
-
-        .role-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary-light);
-        }
-
-        .icon-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            margin: auto;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        /* Rollere özgü renkler */
-        .card-students .icon-wrapper {
-            background-color: #e3f2fd;
-            color: #2196f3;
-        }
-
-        .card-teachers .icon-wrapper {
-            background-color: #e8f5e9;
-            color: #4caf50;
-        }
-
-        .card-parents .icon-wrapper {
-            background-color: #fff3e0;
-            color: #ff9800;
-        }
-
-        .role-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .role-card p {
-            color: var(--text-light);
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        .btn-arrow {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .card-students .btn-arrow {
-            background-color: #2196f3;
-        }
-
-        .card-teachers .btn-arrow {
-            background-color: #4caf50;
-        }
-
-        .card-parents .btn-arrow {
-            background-color: #ff9800;
-        }
-
-        .btn-arrow:hover {
-            opacity: 0.9;
-        }
-
-        /* 
-         * ALT BİLDİRİM (FOOTER) 
-         */
-        footer {
-            background-color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-            border-top-left-radius: var(--radius-large);
-            border-top-right-radius: var(--radius-large);
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.03);
-            margin-top: auto;
-        }
-
-        .download-area {
-            background-color: var(--primary-light);
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px 40px;
-            border-radius: var(--radius-medium);
-            margin-bottom: 20px;
-            transition: background 0.3s;
-        }
-
-        .download-area:hover {
-            background-color: #dbeafe;
-        }
-
-        .download-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d63031;
-            /* PDF Kırmızı renk */
-        }
-
-        .download-text {
-            text-align: left;
-        }
-
-        .download-text span {
-            display: block;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .download-text small {
-            color: var(--text-light);
-            font-size: 0.85rem;
-        }
-
-        .footer-note {
-            font-size: 0.9rem;
-            color: #95a5a6;
-            margin-top: 20px;
-        }
-
-        /* SVG İkon Boyutlandırma */
-        svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Duyarlı Ayarlar */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-menu {
-                gap: 5px;
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .nav-btn {
-                padding: 8px 12px;
-                font-size: 0.9rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .download-area {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            .download-text {
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Header Bölümü -->
     <header>
-        <!-- Logo (Anasayfaya yönlendirir) -->
         <a href="index.html" class="logo-container" aria-label="Anasayfaya Dön">
             <div class="logo-icon">
-                <img src="img/logo.png" width=149px height=60px alt="logo">
+                <img src="img/logo.png" width="149" height="60" alt="logo" onerror="this.style.display='none'">
             </div>
         </a>
 
-        <!-- Navigasyon Menüsü -->
         <nav>
             <ul class="nav-menu">
                 <li><a href="about.html" class="nav-btn">Hakkımızda</a></li>
                 <li><a href="cyber-bullying.html" class="nav-btn">Siber Zorbalık</a></li>
-                <li><a href="activities.html" class="nav-btn active">Etkinlikler</a></li>
-                <li><a href="cooperations.html" class="nav-btn">İşbirlikleri</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-btn">İşbirlikleri ▼</a>
+                    <div class="dropdown-content">
+                        <a href="turkiye.html">Türkiye</a>
+                        <a href="czech.html">Çekya</a>
+                        <a href="italy.html">İtalya</a>
+                        <a href="portugal.html">Portekiz</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <!-- Ana İçerik -->
     <main>
 
-        <!-- Hoş Geldiniz / Hero Bölümü -->
         <section class="hero">
             <h1>Dijital Empati: Siber Zorbalığa Karşı Farkındalık ve İş Birliği Geliştirme</h1>
             <p>
@@ -460,7 +46,6 @@
                 dijital vatandaşlık becerilerini güçlendirmeyi ve uluslararası iş birliğini desteklemeyi hedefler. </p>
         </section>
 
-        <!-- Proje Kapsamı Özeti -->
         <section class="info-teaser">
             <h2>Vizyonumuz</h2>
             <p>
@@ -471,16 +56,13 @@
             </p>
         </section>
 
-        <!-- Yönlendirme Bölümü -->
         <section class="activities-section">
 
             <div class="cards-container">
 
-                <!-- Öğrenci Kartı -->
                 <a href="activities.html#students" class="role-card card-students">
                     <div>
                         <div class="icon-wrapper">
-                            <!-- Öğrenci İkonu SVG -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -497,11 +79,9 @@
                     <div class="btn-arrow">Etkinliklere Git</div>
                 </a>
 
-                <!-- Öğretmen Kartı -->
                 <a href="activities.html#teachers" class="role-card card-teachers">
                     <div>
                         <div class="icon-wrapper">
-                            <!-- Öğretmen/Kitap İkonu SVG -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -516,11 +96,9 @@
                     <div class="btn-arrow">Etkinliklere Git</div>
                 </a>
 
-                <!-- Veli Kartı -->
                 <a href="activities.html#parents" class="role-card card-parents">
                     <div>
                         <div class="icon-wrapper">
-                            <!-- Veli/Aile İkonu SVG -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -542,12 +120,9 @@
 
     </main>
 
-    <!-- Footer Bölümü -->
     <footer>
-        <!-- Broşür İndirme Bağlantısı -->
         <a href="assets/elkitapcigi.pdf" class="download-area" download>
             <div class="download-icon">
-                <!-- Dosya İndirme İkonu SVG -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>

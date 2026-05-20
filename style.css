@@ -1,0 +1,606 @@
+/* ==========================================================================
+   1. TASARIM SİSTEMİ & DEĞİŞKENLER
+   ========================================================================== */
+:root {
+    --primary-color: #6a89cc;
+    /* Yumuşak Mavi */
+    --primary-light: #e6f2ff;
+    /* Çok Açık Mavi */
+    --secondary-color: #82ccdd;
+    /* Nane Yeşili Mavisi */
+    --accent-color: #f8c291;
+    /* Yumuşak Turuncu */
+    --highlight-color: #fad390;
+    /* Yumuşak Sarı */
+    --text-dark: #2c3e50;
+    /* Okunabilirlik için Koyu Gri */
+    --text-light: #576574;
+    /* Gövde metni için Daha Açık Gri */
+    --white: #ffffff;
+
+    --radius-large: 30px;
+    --radius-medium: 20px;
+    --radius-small: 12px;
+
+    --shadow-soft: 0 10px 25px rgba(106, 137, 204, 0.15);
+    --shadow-hover: 0 15px 35px rgba(106, 137, 204, 0.25);
+
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==========================================================================
+   2. SIFIRLAMA & TEMEL STİLLER
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #f4f9fc;
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ==========================================================================
+   3. HEADER & NAVİGASYON (Tüm Sayfalarda Ortak)
+   ========================================================================== */
+header {
+    background-color: var(--white);
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: var(--radius-medium);
+    border-bottom-right-radius: var(--radius-medium);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    margin-left: 60px;
+    margin-top: 7px;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-btn {
+    background-color: transparent;
+    color: var(--text-light);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: inline-block;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. AÇILIR MENÜ (DROPDOWN) STİLLERİ
+   ========================================================================== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white);
+    min-width: 160px;
+    box-shadow: var(--shadow-soft);
+    border-radius: var(--radius-small);
+    z-index: 1001;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: menuFade 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+@keyframes menuFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* ==========================================================================
+   5. FOOTER (Tüm Sayfalarda Ortak)
+   ========================================================================== */
+footer {
+    background-color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+    border-top-left-radius: var(--radius-large);
+    border-top-right-radius: var(--radius-large);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.03);
+    margin-top: auto;
+}
+
+.footer-note {
+    font-size: 0.9rem;
+    color: #95a5a6;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   6. ANASAYFAYA ÖZGÜ STİLLER (Hero, Kartlar vb.)
+   ========================================================================== */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 40px auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.hero {
+    text-align: center;
+    background: linear-gradient(135deg, #fff 0%, var(--primary-light) 100%);
+    padding: 60px 40px;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.info-teaser {
+    background-color: var(--white);
+    border-radius: var(--radius-medium);
+    padding: 30px;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.info-teaser h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.info-teaser p {
+    color: var(--text-light);
+}
+
+.activities-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.role-card {
+    background-color: var(--white);
+    border-radius: var(--radius-large);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.role-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-light);
+}
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.card-students .icon-wrapper {
+    background-color: #e3f2fd;
+    color: #2196f3;
+}
+
+.card-teachers .icon-wrapper {
+    background-color: #e8f5e9;
+    color: #4caf50;
+}
+
+.card-parents .icon-wrapper {
+    background-color: #fff3e0;
+    color: #ff9800;
+}
+
+.role-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.role-card p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.btn-arrow {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.card-students .btn-arrow {
+    background-color: #2196f3;
+}
+
+.card-teachers .btn-arrow {
+    background-color: #4caf50;
+}
+
+.card-parents .btn-arrow {
+    background-color: #ff9800;
+}
+
+.btn-arrow:hover {
+    opacity: 0.9;
+}
+
+.download-area {
+    background-color: var(--primary-light);
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 40px;
+    border-radius: var(--radius-medium);
+    margin-bottom: 20px;
+    transition: background 0.3s;
+}
+
+.download-area:hover {
+    background-color: #dbeafe;
+}
+
+.download-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d63031;
+}
+
+.download-text {
+    text-align: left;
+}
+
+.download-text span {
+    display: block;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.download-text small {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   7. İŞBİRLİKLERİ / ÜLKE SAYFALARINA ÖZGÜ STİLLER (Galeri & Doküman Listesi)
+   ========================================================================== */
+.page-header {
+    text-align: center;
+    background: linear-gradient(135deg, #fff 0%, var(--primary-light) 100%);
+    padding: 50px 30px;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-soft);
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.media-section {
+    background-color: var(--white);
+    border-radius: var(--radius-large);
+    padding: 40px;
+    box-shadow: var(--shadow-soft);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 10px;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.media-card {
+    background-color: #f4f9fc;
+    border-radius: var(--radius-medium);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--primary-light);
+}
+
+.media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.media-card img,
+.media-card video {
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    object-fit: cover;
+    display: block;
+}
+
+.media-card .caption {
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.doc-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f9fc;
+    padding: 20px 30px;
+    border-radius: var(--radius-medium);
+    transition: background 0.3s;
+    border: 1px solid var(--primary-light);
+}
+
+.doc-item:hover {
+    background-color: var(--primary-light);
+}
+
+.doc-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.doc-icon {
+    color: #d63031;
+    background-color: var(--white);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.doc-title {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.doc-size {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.btn-download {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #5373b5;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE (Duyarlı Tasarım) AYARLARI
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-menu {
+        gap: 5px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .dropdown-content {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background-color: #f4f9fc;
+        width: 100%;
+        border-radius: var(--radius-small);
+        margin-top: 5px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        animation: none;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .doc-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .download-area {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .download-text {
+        text-align: center;
+    }
+}
