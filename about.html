@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siber Güven Çocuklar - Hükümet Projesi</title>
+    <style>
+        /* 
+         * TASARIM SİSTEMİ & DEĞİŞKENLER
+         * Çocuklar için davetkar, yumuşak, pastel renk paleti.
+         */
+        :root {
+            --primary-color: #6a89cc;
+            /* Yumuşak Mavi */
+            --primary-light: #e6f2ff;
+            /* Çok Açık Mavi */
+            --secondary-color: #82ccdd;
+            /* Nane Yeşili Mavisi */
+            --accent-color: #f8c291;
+            /* Yumuşak Turuncu */
+            --highlight-color: #fad390;
+            /* Yumuşak Sarı */
+            --text-dark: #2c3e50;
+            /* Okunabilirlik için Koyu Gri */
+            --text-light: #576574;
+            /* Gövde metni için Daha Açık Gri */
+            --white: #ffffff;
+
+            --radius-large: 30px;
+            --radius-medium: 20px;
+            --radius-small: 12px;
+
+            --shadow-soft: 0 10px 25px rgba(106, 137, 204, 0.15);
+            --shadow-hover: 0 15px 35px rgba(106, 137, 204, 0.25);
+
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* SIFIRLAMA & TEMEL STİLLER */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: #f4f9fc;
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 
+         * ÜST BİLDİRİM (HEADER) 
+         */
+        header {
+            background-color: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom-left-radius: var(--radius-medium);
+            border-bottom-right-radius: var(--radius-medium);
+        }
+
+        /* Logo */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            margin-left: 60px;
+            margin-top: 7px;
+        }
+
+        /* Navigasyon Menüsü */
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background-color: transparent;
+            color: var(--text-light);
+            padding: 10px 24px;
+            border-radius: 50px;
+            /* Hap şekli */
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-btn:hover,
+        .nav-btn.active {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* 
+         * ANA İÇERİK 
+         */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 40px auto;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Karşılama Bölümü */
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, #fff 0%, var(--primary-light) 100%);
+            padding: 60px 40px;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Kapsam / Vizyon Bilgisi Özeti */
+        .info-teaser {
+            background-color: var(--white);
+            border-radius: var(--radius-medium);
+            padding: 30px;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .info-teaser h2 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .info-teaser p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+
+        }
+
+        .info-teaser ul {
+            color: var(--text-light);
+            margin-left: 40px;
+            font-size: 1.05rem;
+        }
+
+
+        /* 
+         * HEDEF KİTLE YÖNLENDİRME BÖLÜMÜ (Etkinlikler) 
+         */
+        .activities-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+            align-self: center;
+            margin-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+            margin: 5px auto 0;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+
+        }
+
+        .cards-container ul {
+            text-align: left;
+
+        }
+
+        .role-card {
+            background-color: var(--white);
+            border-radius: var(--radius-large);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            border: 2px solid transparent;
+        }
+
+        .role-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-light);
+        }
+
+        .icon-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        /* Rollere özgü renkler */
+        .card-students .icon-wrapper {
+            background-color: #e3f2fd;
+            color: #2196f3;
+        }
+
+        .card-teachers .icon-wrapper {
+            background-color: #e8f5e9;
+            color: #4caf50;
+        }
+
+        .card-parents .icon-wrapper {
+            background-color: #fff3e0;
+            color: #ff9800;
+        }
+
+        .role-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .role-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .btn-arrow {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .card-students .btn-arrow {
+            background-color: #2196f3;
+        }
+
+        .card-teachers .btn-arrow {
+            background-color: #4caf50;
+        }
+
+        .card-parents .btn-arrow {
+            background-color: #ff9800;
+        }
+
+        .btn-arrow:hover {
+            opacity: 0.9;
+        }
+
+        /* 
+         * ALT BİLDİRİM (FOOTER) 
+         */
+        footer {
+            background-color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-top-left-radius: var(--radius-large);
+            border-top-right-radius: var(--radius-large);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.03);
+            margin-top: auto;
+        }
+
+        .download-area {
+            background-color: var(--primary-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            border-radius: var(--radius-medium);
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+
+        .download-area:hover {
+            background-color: #dbeafe;
+        }
+
+        .download-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d63031;
+            /* PDF Kırmızı renk */
+        }
+
+        .download-text {
+            text-align: left;
+        }
+
+        .download-text span {
+            display: block;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .download-text small {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: #95a5a6;
+            margin-top: 20px;
+        }
+
+        /* SVG İkon Boyutlandırma */
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Duyarlı Ayarlar */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                gap: 5px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .download-area {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .download-text {
+                text-align: center;
+            }
+        }
+
+        /* Definition Card */
+        .content-card {
+            background-color: var(--white);
+            border-radius: var(--radius-large);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .content-card h2 {
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .content-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .content-card ul {
+            color: var(--text-light);
+            margin-left: 40px;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Bölümü -->
+    <header>
+        <!-- Logo (Anasayfaya yönlendirir) -->
+        <a href="index.html" class="logo-container" aria-label="Anasayfaya Dön">
+            <div class="logo-icon">
+                <img src="img/logo.png" width=149px height=60px alt="logo">
+            </div>
+        </a>
+
+        <!-- Navigasyon Menüsü -->
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-btn">Hakkımızda</a></li>
+                <li><a href="cyber-bullying.html" class="nav-btn">Siber Zorbalık</a></li>
+                <li><a href="activities.html" class="nav-btn active">Etkinlikler</a></li>
+                <li><a href="cooperations.html" class="nav-btn">İşbirlikleri</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Ana İçerik -->
+    <main>
+
+        <!-- Hoş Geldiniz / Hero Bölümü -->
+        <section class="content-card">
+            <h2>Dijital Empati: Siber Zorbalığa Karşı Farkındalık ve İş Birliği Geliştirme</h2>
+            <p>
+                Bu proje, öğrencilerin dijital dünyada güvenle var olmasını sağlamak için tasarlanmıştır. Amacımız,
+                gençlere yalnızca teknik dijital beceriler kazandırmak değil; aynı zamanda empati, saygı ve sorumluluk
+                duygularını güçlendirerek siber zorbalığa karşı bilinçli bireyler yetiştirmektir. Etkileşimli
+                etkinlikler, aile katılımı, öğretmen eğitimi ve uluslararası iş birlikleriyle öğrenciler, dijital
+                ortamda tehditleri tanıyacak, kendilerini koruyacak ve başkalarına destek olma bilinci edineceklerdir.
+                Böylece dijital vatandaşlık bilincine sahip, güçlü ve duyarlı bir nesil için sürdürülebilir bir model
+                oluşturulacaktır.
+                Bu proje, öğrencilerin dijital dünyada güvenli, bilinçli ve empatik bireyler olarak yetişmesini
+                hedefler. Günümüz gençleri internette daha fazla vakit geçiriyor ve bu durum siber zorbalık, yanlış
+                bilgi, nefret söylemi ve çevrim içi taciz risklerini artırıyor. Projemiz, çocukları bu tehditlere karşı
+                donatır:
+            <ul>
+                <li>💻 Dijital okuryazarlık becerileri</li>
+                <li>🛡️ Çevrim içi güvenlik ve veri koruma</li>
+                <li>❤️ Empati, saygı ve olumlu dijital iletişim</li>
+                <li>🤝 İş birliği ve kültürler arası anlayış</li>
+            </ul>
+            </p>
+        </section>
+
+        <!-- Proje Kapsamı Özeti -->
+        <section class="info-teaser">
+            <h2>🎯 Projenin Amacı</h2>
+            <p>
+                Öğrencilere sadece dijital beceriler kazandırmak değil, aynı zamanda:
+            </p>
+            <ul>
+                <li>Siber zorbalığı tanıma, önleme ve müdahale etme</li>
+                <li>Duygusal dayanıklılık geliştirme</li>
+                <li>Saygılı çevrim içi davranış alışkanlıkları kazanma</li>
+                <li>Kapsayıcı ve destekleyici bir okul ortamı oluşturma
+                    hedefleniyor.</li>
+            </ul>
+            <p>
+                Bu proje, <b>dijital dönüşüm ve güvenli internet kullanımını</b> eğitim sistemine entegre eder.
+            </p>
+        </section>
+
+        <!-- Yönlendirme Bölümü -->
+        <section class="activities-section">
+
+            <div class="cards-container">
+
+                <!-- Öğrenci Kartı -->
+                <a href="activities.html#students" class="role-card card-students">
+                    <div>
+                        <h3>👥 Hedef Kitle</h3>
+                        <p>
+                        <ul>
+                            <li> 10-14 yaş arası öğrenciler (özellikle dezavantajlı, özel eğitim ihtiyacı olan ve göçmen
+                                öğrenciler)</li>
+                            <li>👨‍🏫 Öğretmenler (dijital güvenlik eğitimi için)</li>
+                            <li>👨‍👩‍👧‍👦 Veliler
+                                (çocuklarına rehberlik için)</li>
+                            <li>👥 Toplum ve yerel paydaşlar</li>
+
+                        </ul>
+
+                        </p>
+                    </div>
+
+                </a>
+
+
+                <a href="activities.html#teachers" class="role-card card-teachers">
+                    <div>
+
+                        <h3>📊 Neden Bu Proje?</h3>
+                        <p>Araştırmalar siber zorbalığın hızla arttığını gösteriyor:</p>
+                        <p>
+                        <ul>
+                            <li>Türkiye’de öğrencilerin %27’si siber zorbalığa uğradığını söylüyor</li>
+                            <li>Öğrencilerin çoğu kendini çevrim içi ortamda güvende hissetmiyor</li>
+                            <li>Öğretmenlerin %60’ı siber güvenlik eğitimi konusunda desteğe ihtiyaç duyuyor</li>
+                            <li>Velilerin büyük bölümü çocuklarını internet risklerinden koruyamıyor</li>
+
+                        </ul>
+
+                        </p>
+                    </div>
+
+                </a>
+
+
+                <a href="activities.html#parents" class="role-card card-parents">
+                    <div>
+
+
+                        <h3>🧠 Nasıl Uygulayacağız?</h3>
+                        <p>
+                        <ul>
+                            <li>📚 Dijital güvenlik eğitimleri</li>
+                            <li>🎭 Empati ve duygusal dayanıklılık atölyeleri</li>
+                            <li>🌍 Uluslararası öğrenci iş birlikleri ve çevrim içi etkinlikler</li>
+                            <li>🎤 Öğrenci liderliğinde farkındalık kampanyaları</li>
+                            <li>👨‍🏫 Öğretmen eğitim programı</li>
+                            <li>👪 Aile farkındalık çalışmaları</li>
+                        </ul>
+
+                        </p>
+                    </div>
+                
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Bölümü -->
+    <footer>
+      
+       
+
+        <div class="footer-note">
+            &copy; 2023 Siber Güven Hükümet Projesi. Tüm Hakları Saklıdır.
+        </div>
+    </footer>
+
+</body>
+
+</html>
