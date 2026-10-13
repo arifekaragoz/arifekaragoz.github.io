@@ -77,23 +77,18 @@ header {
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--primary-color);
 }
 
-.logo-icon {
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-color);
-    margin-left: 60px;
-    margin-top: 7px;
+.logo-img {
+    height: 48px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    display: block;
 }
 
 nav {
@@ -127,6 +122,45 @@ nav {
     color: var(--primary-color);
     border-color: var(--primary-light);
     transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3.1. DİL DEĞİŞTİRİCİ (LANGUAGE SWITCHER)
+   ========================================================================== */
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-light);
+    border-radius: 50px;
+    padding: 3px;
+    gap: 3px;
+    flex-shrink: 0;
+    border: 1px solid rgba(106, 137, 204, 0.25);
+}
+
+.lang-btn {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lang-btn:hover {
+    color: var(--primary-color);
+}
+
+.lang-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(106, 137, 204, 0.35);
 }
 
 /* ==========================================================================
@@ -272,23 +306,44 @@ main {
 .role-card {
     background-color: var(--white);
     border-radius: var(--radius-large);
-    padding: 40px 30px;
-    text-align: center;
+    padding: 35px 30px;
     box-shadow: var(--shadow-soft);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     height: 100%;
     border: 2px solid transparent;
 }
 
-.role-card:hover {
-    transform: translateY(-10px);
+a.role-card {
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+}
+
+a.role-card:hover {
+    transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary-light);
+}
+
+div.role-card {
+    cursor: default;
+    text-align: left;
+    align-items: stretch;
+}
+
+div.role-card ul {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+div.role-card li {
+    margin-bottom: 8px;
 }
 
 .icon-wrapper {
@@ -462,21 +517,94 @@ main {
     box-shadow: var(--shadow-hover);
 }
 
-.media-card img,
+.media-card img {
+    width: 100%;
+    height: 220px;
+    box-sizing: border-box;
+    object-fit: contain;
+    background-color: var(--white);
+    display: block;
+}
+
+.media-card.photo-card img {
+    object-fit: cover;
+}
+
 .media-card video {
     width: 100%;
-    height: 200px;
+    height: 220px;
     box-sizing: border-box;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #000000;
     display: block;
 }
 
 .media-card .caption {
     padding: 15px;
     text-align: center;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.95rem;
     color: var(--text-dark);
+    background-color: #f8fafc;
+    border-top: 1px solid var(--primary-light);
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-small);
+    margin: 15px auto;
+    display: block;
+}
+
+.notice-box {
+    background-color: var(--white);
+    border-left: 4px solid var(--primary-color);
+    padding: 24px 28px;
+    border-radius: var(--radius-medium);
+    margin: 20px 0;
+    box-shadow: var(--shadow-soft);
+    color: var(--text-dark);
+}
+
+.notice-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.mobility-card {
+    background-color: var(--white);
+    border-radius: var(--radius-medium);
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid var(--primary-light);
+    box-shadow: var(--shadow-soft);
+}
+
+.lang-badge {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary-light);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 
 .doc-list {

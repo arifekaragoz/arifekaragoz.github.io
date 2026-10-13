@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siber Güven Çocuklar - Hükümet Projesi</title>
+    <title>Siber Zorbalık - Dijital Empati</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,18 +12,17 @@
 
     <!-- Header Bölümü -->
     <header>
-        <!-- Logo (Anasayfaya yönlendirir) -->
         <a href="index.html" class="logo-container" aria-label="Anasayfaya Dön">
-            <div class="logo-icon">
-                <img src="img/logo.png" width=149px height=60px alt="logo">
-            </div>
+            <img src="img/logo.png" alt="Dijital Empati Logo" class="logo-img">
         </a>
 
         <!-- Navigasyon Menüsü -->
         <nav>
             <ul class="nav-menu">
+                <li><a href="index.html" class="nav-btn">Anasayfa</a></li>
                 <li><a href="about.html" class="nav-btn">Hakkımızda</a></li>
                 <li><a href="cyber-bullying.html" class="nav-btn active">Siber Zorbalık</a></li>
+                <li><a href="activities.html" class="nav-btn">Etkinlikler</a></li>
                 <li class="dropdown">
                     <a href="#" class="nav-btn">İşbirlikleri ▼</a>
                     <div class="dropdown-content">
@@ -33,119 +32,86 @@
                         <a href="portugal.html">Portekiz</a>
                     </div>
                 </li>
-            </ul>
         </nav>
+
+        <div class="lang-switch">
+            <a href="cyber-bullying.html" class="lang-btn active">TR</a>
+            <a href="en/cyber-bullying.html" class="lang-btn">EN</a>
+        </div>
     </header>
 
     <!-- Ana İçerik -->
     <main>
-        <!-- Yönlendirme Bölümü -->
+
+        <section class="page-header">
+            <h1>🛡️ Siber Zorbalık ve Bilinçli İnternet</h1>
+            <p>Dijital dünyada karşılaşılan tehditleri tanımak, siber zorbalığın neden ve sonuçlarını anlamak, empati temelli güvenli bir dijital alan inşa etmenin ilk adımıdır.</p>
+        </section>
+
+        <!-- Bilgi Bölümü -->
         <section class="activities-section">
 
             <div class="cards-container">
 
-                <!-- Öğrenci Kartı -->
-                <a href="activities.html#students" class="role-card card-students">
+                <!-- Tanım Kartı -->
+                <div class="role-card card-students">
                     <div>
                         <h3>SİBER ZORBALIK NEDİR?</h3>
-                        <p>Günümüzde bireylerin bilgiye hızlı bir şekilde ulaşmasını ve insanların iletişimini
-                            kolaylaştıran bilgi ve iletişim teknolojileri (internet, cep telefonu, bilgisayar vb.)
-                            bireyler tarafından yaygın olarak kullanılmaktadır. Özellikle akıllı telefonların
-                            yaygınlaşmasıyla birlikte bireyler internete artık kısa zamanda ve istenilen mekanda
-                            ulaşabilmektedirler. Bu bilgi ve iletişim teknolojileri bireylere sağlanmış olduğu bunca
-                            kolaylığın yanında amacının dışında kullanılmaya başlanmasıyla bazı olumsuz sonuçların
-                            yaşanmasına da neden olmaya başlamıştır. Yaşanan bu olumsuzluklardan bir tanesi de iletişim
-                            teknolojilerinin birbirlerine zarar vermek amacıyla kullanılmasıyla ortaya çıkan siber
-                            zorbalıktır.</p>
+                        <p>Günümüzde bilgiye hızlı bir şekilde ulaşmayı ve iletişimi kolaylaştıran bilgi ve iletişim teknolojileri (internet, akıllı telefonlar, bilgisayarlar vb.) hayatımızın vazgeçilmez bir parçası haline gelmiştir. Bu teknolojiler sağladığı kolaylıkların yanında, kötü niyetli veya bilinçsiz kullanımla bazı olumsuz sonuçların yaşanmasına da neden olmaktadır.</p>
 
-                        <img class="image" src="img/siber-zorbalik1.png" width="200px">
-                        <p>
-                            Siber zorbalık; bir birey veya grubun bilgi ve iletişim teknolojilerini diğer bireylere
-                            zarar vermek amacıyla kullanması olarak tanımlanmaktadır.
-                        </p>
-                        <p>
-                            Bilgi ve iletişim araçlarıyla (telefon, tablet, bilgisayar, internet vs.) bir kişi ya da
-                            grubun kendisine hedef olarak seçtiği bir kişi ya da gruba yönelik yaptığı zarar verici her
-                            türlü eyleme siber zorbalık denir.</p>
-                        </p>
+                        <img class="image" src="img/siber-zorbalik1.png" alt="Siber Zorbalık İllüstrasyonu" style="max-height: 220px; object-fit: contain;">
+
+                        <p><strong>Siber zorbalık;</strong> bir birey veya grubun bilgi ve iletişim teknolojilerini diğer bireylere zarar vermek, onları tehdit etmek, aşağılamak veya dışlamak amacıyla sistematik olarak kullanmasıdır.</p>
                     </div>
-                </a>
+                </div>
 
-                <!-- Öğretmen Kartı -->
-                <a href="activities.html#teachers" class="role-card card-teachers">
+                <!-- Davranışlar Kartı -->
+                <div class="role-card card-teachers">
                     <div>
                         <h3>Hangi Davranışlar Siber Zorbalıktır?</h3>
-                        <p>
                         <ul>
-                            <li>Kişinin görüntülerini çekmek ya da çekilmiş görüntülerin kişiden izin almadan sanal
-                                ortamlarda yayınlamak.</li>
-                            <li>Sanal ortamda olumsuz sözler sarf etmek</li>
-                            <li>Sanal ortamda başkasının yerine geçerek o kişiymiş gibi davranmak</li>
-                            <li>Sanal ortamda birilerini tehdit etmek</li>
-                            <li>Sosyal medyada birilerine hakaret etmek, aşağılamak, dalga geçmek</li>
-                            <li>Birisine ait özel bilgileri onun izni olmadan sanal ortamda paylaşmak</li>
-                            <li>Bir kişiyle ilişkin onu karalayıcı, küçük düşürücü site, sayfa ya da grup oluşturmak
-                            </li>
-                            <li>E-posta, mesaj ya da anlık iletilerle kişiye hakaret etme, aşağılama, alay alma ya da
-                                tehdit etme</li>
-                            <li>Sosyal ağlarda birisi hakkında dedikodu çıkartma</li>
-                            <li>Arkadaşlarıyla organize olup mağdur olarak seçtiği kişiyi sosyal platformlarda dışlama
-                                (arkadaşlıktan çıkarma, takibi bırakma vb.)</li>
+                            <li>Kişinin görüntülerini izinsiz çekmek ya da sanal ortamlarda rızasız yayınlamak</li>
+                            <li>Sanal ortamda hakaret, olumsuz veya aşağılayıcı sözler sarf etmek</li>
+                            <li>Başkası adına sahte hesap açarak o kişiymiş gibi davranmak</li>
+                            <li>Sanal ortamda kişileri tehdit veya şantaj etmek</li>
+                            <li>Birisine ait özel veya gizli bilgileri onun izni olmadan paylaşmak</li>
+                            <li>Kişiyi karalayıcı, küçük düşürücü sayfa ya da gruplar oluşturmak</li>
+                            <li>Organize olarak bir kişiyi sosyal platformlarda dışlamak veya engellemek</li>
                         </ul>
-                        </p>
-                        <img class="image" src="img/siber-zorbalik2.png" width="200px">
-                    </div>
-                </a>
 
-                <!-- Veli Kartı -->
-                <a href="activities.html#parents" class="role-card card-parents">
+                        <img class="image" src="img/siber-zorbalik2.png" alt="Siber Zorbalık Davranışları" style="max-height: 220px; object-fit: contain;">
+                    </div>
+                </div>
+
+                <!-- Nedenler Kartı -->
+                <div class="role-card card-parents">
                     <div>
                         <h3>Siber Zorbalığın Nedenleri</h3>
-                        <p>
                         <ul>
-                            <li>Eğlence / şaka amaçlı yaptığını düşünmesi</li>
-                            <li>Kendisine kötü davranan kişilerden sanal dünyada intikam almaya çalışma</li>
-                            <li>Başkalarını kontrol etme arzusu</li>
-                            <li>Arkadaşları arasında saygınlık kazanma</li>
-                            <li>Saldırganlıktan zevk alma</li>
-                            <li>Sert görünme isteği</li>
-                            <li>Yakalanma ihtimalinin düşük olması</li>
-                            <li>Mağdurla yüz yüze iletişim kurma zorunluluğunun bulunmaması</li>
-                            <li>Anonim olabilmesi (kimliğini gizleyebilme)</li>
-                            <li>Davranışlarının sorumluluğunu almaktan kaçma</li>
-                            <li>Kıskançlık</li>
-                            <li>Gerçek yaşamda davranışa dökemediği saldırgan düşüncelerini sanal ortamda gerçekleştirme
-                                isteği</li>
-                            <li>Gerçek hayattaki kızgınlığın sanal ortamda başka birisine yöneltilmesi</li>
-                            <li>Sanal ortamın yeterince denetlenmemesi</li>
-                            <li>Mağdurlara fiziksel zarar vermediklerini düşünmeleri</li>
+                            <li>Eğlence veya şaka amaçlı yapıldığının düşünülmesi</li>
+                            <li>Gerçek yaşamda ifade edilemeyen öfke ve saldırganlığın sanal alana aktarılması</li>
+                            <li>Anonim kalabilme (kimliğini gizleyebilme) hissinin verdiği yanılsama</li>
+                            <li>Akranları arasında güç veya sözde saygınlık kazanma arzusu</li>
+                            <li>Mağdurla yüz yüze gelmeme nedeniyle empati yoksunluğu</li>
+                            <li>Sanal ortamların yeterince denetlenmediği algısı</li>
+                            <li>Kıskançlık ve intikam duygusu</li>
                         </ul>
-                        </p>
                     </div>
-                </a>
-                <a href="activities.html#parents" class="role-card card-parents">
+                </div>
+
+                <!-- Sonuçlar Kartı -->
+                <div class="role-card card-parents">
                     <div>
                         <h3>Siber Zorbalığın Sonuçları</h3>
                         <ul>
-                            <li>Siber zorbalığın; psikolojik, duygusal ve sosyal alanlarda ciddi olumsuz etkileri
-                                vardır.</li>
-                            <li>Zorbaca davranışlara maruz kalma durumu, zamanla fiziksel ve ruhsal rahatsızlıklara
-                                neden olmaktadır.</li>
-                            <li>Zorbaca davranışların uzun süre devam etmesi ve mağdurun çevresinden destek görememesi
-                                durumunda, yaşanan bu rahatsızlıklar daha da şiddetli hissedilmektedir.</li>
-                            <li>Zorba ve mağdurlarda; depresyon, yalnızlık, düşük sosyalleşme, düşük özsaygı, üzüntü,
-                                kızgınlık, korku ve anksiyete gibi psikolojik etkiler görülür.</li>
-                            <li>Siber zorbalığa maruz kalanlarda; kusma, kol ve bacak ağrısı, nefes darlığı, karın
-                                ağrısı, sırt ağrısı, çarpıntı ve bulantı gibi fiziksel tepkiler görülebilmektedir.</li>
-                            <li>Siber zorbalığa maruz kalanlar, dikkati bir noktada toplamada güçlük çekmekte ve
-                                yaşıtlarıyla uyum sağlamada problemler yaşamaktadır.</li>
-                            <li>Hem zorba hem de mağdurlarda okul başarısında azalma ve devamsızlıkta artış
-                                görülebilmektedir.</li>
-                            <li>Siber zorbalığa maruz kalanlar, aileleri ve sosyal çevreleriyle sıklıkla çatışma
-                                yaşamaktadır.</li>
+                            <li>Siber zorbalık; psikolojik, duygusal ve sosyal alanlarda derin yaralar açar.</li>
+                            <li>Zorbalığa maruz kalanlarda depresyon, anksiyete, yalnızlık, korku ve düşük özgüven yaygın olarak görülür.</li>
+                            <li>Uyku bozuklukları, baş ağrısı, mide bulantısı gibi somatik ve fiziksel belirtilere yol açabilir.</li>
+                            <li>Öğrencilerde dikkat dağınıklığı, okul başarısında belirgin düşüş ve devamsızlık artışı yaşanır.</li>
+                            <li>Aile ve arkadaş çevresinden uzaklaşma ve içe kapanma eğilimi gelişir.</li>
                         </ul>
                     </div>
-                </a>
+                </div>
 
             </div>
         </section>
@@ -154,9 +120,8 @@
 
     <!-- Footer Bölümü -->
     <footer>
-
         <div class="footer-note">
-            &copy; 2023 Siber Güven Hükümet Projesi. Tüm Hakları Saklıdır.
+            &copy; 2026 Dijital Empati - Erasmus+ Projesi. Tüm Hakları Saklıdır.
         </div>
     </footer>
 
