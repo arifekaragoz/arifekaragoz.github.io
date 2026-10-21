@@ -766,6 +766,8 @@ div.role-card li {
 
     .dropdown {
         width: 100%;
+        display: block;
+        position: relative;
     }
 
     .dropdown-toggle {
@@ -775,8 +777,11 @@ div.role-card li {
 
     /* Accordion in Mobile */
     .dropdown-content {
-        position: static;
-        transform: none;
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
+        top: auto !important;
+        min-width: unset !important;
         box-shadow: none;
         background-color: #f4f9fc;
         width: 100%;
@@ -793,11 +798,12 @@ div.role-card li {
     }
 
     .dropdown.open .dropdown-content {
-        max-height: 250px;
+        max-height: 300px;
         opacity: 1;
         visibility: visible;
-        padding: 6px 0;
+        padding: 8px 0;
         pointer-events: auto;
+        transform: none !important;
     }
 
     /* Disable hover-to-open on mobile touch */
@@ -806,18 +812,22 @@ div.role-card li {
         visibility: hidden;
         max-height: 0;
         padding: 0;
+        transform: none !important;
     }
 
     .dropdown.open:hover .dropdown-content {
         opacity: 1;
         visibility: visible;
-        max-height: 250px;
-        padding: 6px 0;
+        max-height: 300px;
+        padding: 8px 0;
+        transform: none !important;
     }
 
     .dropdown-content a {
-        padding: 11px 20px;
-        font-size: 0.9rem;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        text-align: center;
+        white-space: nowrap;
         border-bottom: 1px solid rgba(106, 137, 204, 0.12);
     }
 
