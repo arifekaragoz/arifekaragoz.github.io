@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Digital Empathy</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var path = window.location.pathname;
+        if (path.indexOf('/en/') === 0 || path === '/en') {
+            var newPath = path.replace(/^\/en(\/|$)/, '/');
+            if (!newPath || newPath === '/') newPath = '/index.html';
+            window.location.replace(newPath + window.location.search + window.location.hash);
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container" aria-label="Home">
+            <img src="img/logo.png" alt="Digital Empathy Logo" class="logo-img">
+        </a>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-btn">Home</a></li>
+                <li><a href="about.html" class="nav-btn">About Us</a></li>
+                <li><a href="cyber-bullying.html" class="nav-btn">Cyberbullying</a></li>
+                <li><a href="activities.html" class="nav-btn">Activities</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-btn">Partnerships ▼</a>
+                    <div class="dropdown-content">
+                        <a href="turkiye.html">Turkey</a>
+                        <a href="czech.html">Czechia</a>
+                        <a href="italy.html">Italy</a>
+                        <a href="portugal.html">Portugal</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="text-align: center; padding: 80px 20px;">
+            <h1 style="font-size: 3rem; margin-bottom: 15px;">404</h1>
+            <h2 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--primary-color);">Page Not Found</h2>
+            <p style="max-width: 600px; margin: 0 auto 30px auto;">
+                The page you are looking for does not exist or has been moved to our main English website.
+            </p>
+            <a href="index.html" class="nav-btn active" style="display: inline-block; padding: 12px 28px; font-size: 1rem;">Back to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-note">
+            &copy; 2026 Digital Empathy - Erasmus+ Project. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+
+</html>
